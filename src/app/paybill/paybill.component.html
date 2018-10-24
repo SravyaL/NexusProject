@@ -1,0 +1,51 @@
+<router-outlet></router-outlet>
+
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-sm-9 m-auto" *ngIf="!single">
+      <h3>
+        <fa name="cog" animation="spin"></fa> Loading
+      </h3>
+    </div>
+
+  </div>
+</div>
+<span>
+  <h3 style="padding:15px">SELECTED PLAN</h3>
+  <div class="col-lg-2 ml-1 mb-1" style="display:inline-block; align-items: center;" *ngIf="single">
+    <div class="zoom">
+      <table style="border:1px; border-spacing: 10px; width: 20%; padding: 15px; margin:2px ; ">
+        <tr>
+          <th>Plan :</th>
+          <td>{{single.type}}</td>
+        </tr>
+        <tr>
+          <th>Amount: </th>
+          <td>{{single.amount}}</td>
+        </tr>
+        <tr>
+          <th>Validity in Days: </th>
+          <td>{{single.validity}}</td>
+        </tr>
+        <tr>
+          <th>Data Usage:</th>
+          <td *ngIf="single.dataUsage">{{single.dataUsage}}</td>
+          <td *ngIf="!single.dataUsage">No Data</td>
+        </tr>
+        <tr>
+          <th>Data Speed: </th>
+          <td *ngIf="single.dataSpeed">{{single.dataSpeed}}</td>
+          <td *ngIf="!single.dataSpeed">No Data</td>
+        </tr>
+        <tr>
+          <th>Voice in Minutes: </th>
+          <td *ngIf="single.voiceInMin">{{single.voiceInMin}}</td>
+          <td *ngIf="!single.voiceInMin">No Voice</td>
+        </tr>
+
+      </table>
+
+    </div>
+
+  </div>
+</span>

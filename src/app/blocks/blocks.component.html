@@ -1,0 +1,159 @@
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="mystyle.css"> -->
+</head>
+<body>
+  <br />
+  <nav>
+    <a href="#phone">For Phone</a>
+    <a href="#home">For Home</a>
+  </nav>
+
+  <div class="alert alert-warning" *ngIf="!plans || plans.length==0">
+    Records could not be found or loaded
+  </div>
+  <section id="phone">
+<span>
+      <h3 style="padding:15px"><strong>POSTPAID</strong></h3>
+      <div class="col-lg-2 ml-1 mb-1" style="display:inline-block; align-content: center;" *ngFor="let p of plans">
+        <div *ngIf="p.type=='POSTPAID'">
+          <div class="zoom">
+            <table style="border:1px; border-spacing: 10px; width: 20%; padding: 20px; margin:2px ; ">
+              <tr>
+                <th>Plan :</th>
+                <td>{{p.type}}</td>
+              </tr>
+              <tr>
+                <th>Amount: </th>
+                <td>{{p.amount}}</td>
+              </tr>
+              <tr>
+                <th>Validity in Days: </th>
+                <td>{{p.validity}}</td>
+              </tr>
+              <tr >
+                <th>Data Usage:</th>
+                <td *ngIf="p.dataUsage">{{p.dataUsage}}</td>
+                <td *ngIf="!p.dataUsage">No Data</td>
+              </tr>
+              <tr> 
+                <th>Data Speed: </th>
+                <td *ngIf="p.dataSpeed">{{p.dataSpeed}}</td>
+                <td *ngIf="!p.dataSpeed">No Data</td>
+              </tr>
+              <tr>
+                <th>Voice in Minutes: </th>
+                <td *ngIf="p.voiceInMin">{{p.voiceInMin}}</td>
+                <td *ngIf="!p.voiceInMin">No Voice</td>
+              </tr>
+              <tr style="text-align:center;">
+                <td style="margin:auto;">
+                  <button type="submit" (click)="pay(p.pid)">Buy</button>
+                </td>
+              </tr>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </span>
+    <span>
+        <h3 style="padding:15px">PREPAID</h3>
+        <div class="col-lg-2 ml-1 mb-1" style="display:inline-block; align-items: center;" *ngFor="let p of plans">
+          <div *ngIf="p.type=='PREPAID'">
+            <div class="zoom">
+              <table style="border:1px; border-spacing: 12px; width: 20%; padding: 20px; margin:2px ; ">
+                  <tr>
+                      <th>Plan :</th>
+                      <td>{{p.type}}</td>
+                    </tr>
+                    <tr>
+                      <th>Amount: </th>
+                      <td>{{p.amount}}</td>
+                    </tr>
+                    <tr>
+                      <th>Validity in Days: </th>
+                      <td>{{p.validity}}</td>
+                    </tr>
+                    <tr >
+                      <th>Data Usage:</th>
+                      <td *ngIf="p.dataUsage">{{p.dataUsage}}</td>
+                      <td *ngIf="!p.dataUsage">No Data</td>
+                    </tr>
+                    <tr> 
+                      <th>Data Speed: </th>
+                      <td *ngIf="p.dataSpeed">{{p.dataSpeed}}</td>
+                      <td *ngIf="!p.dataSpeed">No Data</td>
+                    </tr>
+                    <tr>
+                      <th>Voice in Minutes: </th>
+                      <td *ngIf="p.voiceInMin">{{p.voiceInMin}}</td>
+                      <td *ngIf="!p.voiceInMin">No Voice</td>
+                    </tr>
+                    <tr style="text-align:center">
+                  <td>
+                    <button type="submit" (click)="pay(p.pid)">Buy</button>
+                  </td>
+                </tr>
+              </table>
+  
+            </div>
+  
+          </div>
+        </div>
+      </span>
+  
+  </section>
+  <section id="home">
+      <span>
+          <h3 style="padding:15px">BROADBAND</h3>
+          <div class="col-lg-2 ml-1 mb-1" style="display:inline-block; align-items: center;" *ngFor="let p of plans">
+            <div *ngIf="p.type=='BROADBAND'">
+              <div class="zoom">
+                <table style="border:1px; border-spacing: 10px; width: 20%; padding: 15px; margin:2px ; ">
+                    <tr>
+                        <th>Plan :</th>
+                        <td>{{p.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Amount: </th>
+                        <td>{{p.amount}}</td>
+                      </tr>
+                      <tr>
+                        <th>Validity in Days: </th>
+                        <td>{{p.validity}}</td>
+                      </tr>
+                      <tr >
+                        <th>Data Usage:</th>
+                        <td *ngIf="p.dataUsage">{{p.dataUsage}}</td>
+                        <td *ngIf="!p.dataUsage">No Data</td>
+                      </tr>
+                      <tr> 
+                        <th>Data Speed: </th>
+                        <td *ngIf="p.dataSpeed">{{p.dataSpeed}}</td>
+                        <td *ngIf="!p.dataSpeed">No Data</td>
+                      </tr>
+                      <tr>
+                        <th>Voice in Minutes: </th>
+                        <td *ngIf="p.voiceInMin">{{p.voiceInMin}}</td>
+                        <td *ngIf="!p.voiceInMin">No Voice</td>
+                      </tr>
+                      <tr style="text-align:center">
+                    <td>
+                      <button type="submit" (click)="pay(p.pid)">Buy</button>
+                    </td>
+                  </tr>
+                </table>
+    
+              </div>
+    
+            </div>
+          </div>
+        </span>
+    
+  </section>
+
+
+</body>
